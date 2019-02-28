@@ -7,8 +7,10 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
-server.use(cors());
+server.use(cors({
+    credentials: true, origin: true
+}));
 
-server.use('/api/', router);
+server.use('/', router);
 
 module.exports = server;
